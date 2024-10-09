@@ -12,7 +12,7 @@ const config: DocsThemeConfig = {
   },
 
   chat: {
-    link: 'https://discord.gg/hEM84NMkRv', // Next.js discord server,
+    link: '', // Next.js discord server,
   },
 
   docsRepositoryBase: 'https://github.com/shuding/nextra/blob/core/examples/docs',
