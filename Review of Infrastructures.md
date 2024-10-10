@@ -47,19 +47,67 @@ If we are going to use the existing built-in SSI technology, perhaps we may need
 
 - they have Typescript Alastria Identity Library that we can utilize for our application in any specific use case.
 
-
 # Deploy Hyperledger Besu Node on Alastria Network
 
 > - The new node owner installs the software in a machine (physical or virtual) that complies with the minimum requirements.
 > - The new node owner requests inclusion of the node into the network by creating a pull request with some of the information created during the installation process, including the unique address of the node (enode).
->  - The rest of the network nodes update automatically their permissioning information, and allow the new node to connect.
+> - The rest of the network nodes update automatically their permissioning information, and allow the new node to connect.
 > - The new node is already part of the Alastria network.
 
-
-
 # Links and Resources
+
 - _GoQuorum Offical Repo_: https://github.com/Consensys/quorum
 - _ZSL Proof of Concept_: https://github.com/Consensys/quorum/wiki/ZSL
 - _Alastria Platform En_: https://github.com/alastria/alastria-platform-TO_BE_UPDATED/tree/master/en
 - _Regular Nodes List_: https://github.com/alastria/alastria-node/blob/testnet2/DIRECTORY_REGULAR.md
 
+<!-- UPDATED API ENDPOINTS -->
+
+| HTTP Method   | Path                                  | Summary                                     |
+| ------------- | ------------------------------------- | ------------------------------------------- |
+| GET           | `/data`                               | Retrieve Data                               |
+| GET           | `/pause-state`                        | Retrieve Current Pause State                |
+| GET           | `/providers`                          | Retrieve All Providers                      |
+| GET           | `/producers/{producerId}/records`     | Retrieve Producer Records                   |
+| GET           | `/producers/{producerId}/info`        | Retrieve Producer Record Info               |
+| GET           | `/producers/{producerId}/status`      | Retrieve Producer Record Status             |
+| GET           | `/producers/{producerId}/consent`     | Retrieve Producer Record Consent            |
+| GET           | `/record-schema`                      | Retrieve Record Schema                      |
+| GET           | `/providers/metadata`                 | Retrieve Provider Metadata                  |
+| GET           | `/producers/{producerId}/count`       | Retrieve Count of Producer Records          |
+| GET           | `/producers/{producerId}/exists`      | Check Whether Producer Record Exists        |
+| POST          | `/producers`                          | Register a New Producer                     |
+| POST          | `/producers/{producerId}/records`     | Update a Producer Record                    |
+| POST          | `/producers/{producerId}/consent`     | Update Producer Consent                     |
+| DELETE        | `/producers/{producerId}/records`     | Remove a Producer Record                    |
+| POST          | `/pause-contract`                     | Change Pause State                          |
+| POST          | `/ownership/renounce`                 | Renounce Ownership                          |
+| POST          | `/ownership/transfer`                 | Transfer Ownership                          |
+| PATCH         | `/providers/metadata`                 | Update Provider Metadata                    |
+| PATCH         | `/providers/schema`                   | Update Provider Record Schema               |
+| PATCH         | `/producers/{producerId}/metadata`    | Update Producer Record Metadata             |
+| PATCH         | `/producers/{producerId}/status`      | Update Producer Record Status               |
+| HTTP Method   | Path                                  | Summary                                     |
+| ------------- | ------------------------------------- | ------------------------------------------- |
+| GET           | `/getData`                            | Get Data                                    |
+| GET           | `/pauseState`                         | Get Pause State                             |
+| GET           | `/provider`                           | Get Provider                                |
+| GET           | `/getProducerRecord`                  | Get Producer Record                         |
+| GET           | `/getProducerRecordInfo`              | Get Producer Record Info                    |
+| GET           | `/getProducerRecordStatus`            | Get Producer Record Status                  |
+| GET           | `/getProducerConsent`                 | Get Producer Record Consent                 |
+| GET           | `/getRecordSchema`                    | Get Record Schema                           |
+| GET           | `/getProviderMetadata`                | Get Provider Metadata                       |
+| GET           | `/getProducerRecordCount`             | Get Producer Record Count                   |
+| GET           | `/producerExists`                     | Check Whether Producer Record Exists        |
+| POST          | `/registerProducer`                   | Register Producer                           |
+| POST          | `/updateProducerRecord`               | Update Producer Record                      |
+| POST          | `/updateProducerConsent`              | Update Producer Consent                     |
+| POST          | `/removeProducerRecord`               | Remove Producer Record                      |
+| POST          | `/changePauseState`                   | Pause Contract                              |
+| POST          | `/renounceOwnership`                  | Renounce Ownership                          |
+| POST          | `/transferOwnership`                  | Transfer Ownership                          |
+| POST          | `/updateProviderMetadata`             | Update Provider Metadata                    |
+| POST          | `/updateProviderRecordSchema`         | Update Provider Record Schema               |
+| POST          | `/updateProducerRecordMetadata`       | Update Producer Record Metadata             |
+| POST          | `/updateProducerRecordStatus`         | Update Producer Record Status               |

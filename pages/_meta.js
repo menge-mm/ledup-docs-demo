@@ -9,7 +9,7 @@ export default {
   encrypt: 'Encryption',
   github_link: {
     title: 'Source Code ↗',
-    href: 'https://github.com/shuding/nextra',
+    href: 'https://github.com/LED-UP/LED-UP-SMART-CONTRACTS',
     newWindow: true,
   },
 };

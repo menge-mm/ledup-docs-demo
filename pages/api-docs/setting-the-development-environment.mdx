@@ -1,0 +1,130 @@
+import HeaderTitle from '@/components/title';
+
+<HeaderTitle title="Setting the development environment" />
+This section will guide you through the steps to get started with the LED-UP Platform API, including prerequisites, installation,
+configuration, and basic usage.
+
+### Prerequisites
+
+Before you begin, ensure you have the following:
+
+1. **Node.js**: Ensure you have [Node.js](https://nodejs.org/en/download/) (v14 or higher) installed on your machine.
+2. **Azure Account**: A valid Azure account to deploy and manage Azure Functions.
+3. **Azure Functions Core Tools**: Install [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local) for local development and testing.
+4. **Git**: Make sure you have [Git](https://git-scm.com/) installed for version control.
+
+### Installation
+
+1. **Clone the Repository**:
+
+   ```bash
+   git clone https://github.com/your-username/producer-provider-api.git
+   cd producer-provider-api
+   ```
+
+2. **Install Dependencies**:
+   Navigate to the project directory and run:
+   ```bash
+   npm install
+   ```
+
+### Configuration
+
+1. **Environment Variables**:
+   Create a `.env` file in the root directory of the project and add any necessary environment variables required by your Azure Functions. This may include database connection strings, API keys, etc.
+
+   Example `.env` file:
+
+   ```plaintext
+   DATABASE_URL=<your_database_url>
+   API_KEY=<your_api_key>
+   ```
+
+2. **Local Settings** (optional):
+   For local development, you may want to create a `local.settings.json` file that mirrors the configuration of your Azure Functions.
+
+   Example `local.settings.json`:
+
+   ```json
+   {
+     "IsEncrypted": false,
+     "Values": {
+       "AzureWebJobsStorage": "<your_storage_connection_string>",
+       "FUNCTIONS_WORKER_RUNTIME": "node"
+     }
+   }
+   ```
+
+### Running the API Locally
+
+1. **Start the Azure Functions Host**:
+   To run the API locally, use the following command:
+
+   ```bash
+   func start
+   ```
+
+2. **Test the Endpoints**:
+   Once the API is running, you can test the endpoints using tools like [Postman](https://www.postman.com/) or [curl](https://curl.se/). Below are examples of how to interact with the API.
+
+### Basic Usage
+
+#### Update Producer Record
+
+- **Endpoint**: `POST /updateProducerRecord`
+- **Request Body**:
+  ```json
+  {
+    "producer": "producer_id",
+    "recordId": "record_id",
+    "metadata": {
+      "cid": "content_identifier",
+      "url": "https://example.com",
+      "hash": "hash_value"
+    }
+  }
+  ```
+
+#### Withdraw Producer Balance
+
+- **Endpoint**: `POST /withdrawProducerBalance`
+- **Request Body**:
+  ```json
+  {
+    "value": 100
+  }
+  ```
+
+#### Withdraw Service Fee
+
+- **Endpoint**: `POST /withdrawServiceFee`
+- **Request Body**:
+  ```json
+  {
+    "value": 50
+  }
+  ```
+
+### Deployment to Azure
+
+1. **Login to Azure**:
+
+   ```bash
+   az login
+   ```
+
+2. **Deploy the Function App**:
+   Run the following command to deploy your Azure Functions:
+   ```bash
+   func azure functionapp publish <your_function_app_name>
+   ```
+
+### Additional Resources
+
+- [Azure Functions Documentation](https://learn.microsoft.com/en-us/azure/azure-functions/)
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+
+### Conclusion
+
+With these steps, you should have a fully functional API for managing producer and provider records. Feel free to explore the various endpoints and functionalities provided by the API, and customize it to suit your needs!
