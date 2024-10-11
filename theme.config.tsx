@@ -22,13 +22,13 @@ const config: DocsThemeConfig = {
   },
   faviconGlyph: '✦',
   footer: {
-    content: 'Copyright © 2022-present LED-UP',
+    content: 'Copyright © 2024, LED-UP',
   },
   head: function useHead() {
     const config = useConfig();
     const title = `${config.title} – LED-UP`;
     const description = config.frontMatter.description || 'LED-UP: Documentation for the LED-UP smart contract & APIs';
-    const image = config.frontMatter.image || 'https://nextra.site/og.jpeg';
+    const image = config.frontMatter.image || '/favicon.ico';
     return (
       <>
         <title>{title}</title>
@@ -43,7 +43,7 @@ const config: DocsThemeConfig = {
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="https://nextra.site" />
+        <meta name="twitter:site" content="https://led-up-docs.vercel.app/" />
         {/* <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png" />
         <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -55,8 +55,8 @@ const config: DocsThemeConfig = {
 
   logo: (
     <span className="flex items-center gap-3">
-      <Image src="/logo.png" alt="LED-UP Logo" width={45} height={45} />{' '}
-      <span className="text-4xl text-slate-900 font-bold">LED-UP</span>
+      <Image src="/logo.png" alt="LED-UP Logo" width={36} height={36} />{' '}
+      <span className="text-2xl text-slate-900 font-bold ml-3">LED-UP</span>
     </span>
   ),
 };

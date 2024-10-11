@@ -1,40 +1,87 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# LED-UP Documentation
+
+This repository contains the documentation for the LED-UP project, which provides a decentralized application and serverless APIs using Azure Functions.
+
+## Overview
+
+The LED-UP documentation is built using Next.js and Nextra, providing a comprehensive guide for developers to get started with the LED-UP solutions. It covers both smart contracts and API documentation.
 
 ## Getting Started
 
-First, run the development server:
+To run this documentation locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. Clone the repository
+2. Install dependencies:
+   ```
+   npm install
+   ```
+3. Run the development server:
+   ```
+   npm run dev
+   ```
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## Project Structure
+
+The project follows a typical Next.js structure with some additional folders for documentation:
+
+```
+├── components/
+├── pages/
+│   ├── api-docs/
+│   ├── contracts/
+│   └── _app.tsx
+├── public/
+├── styles/
+├── next.config.mjs
+├── package.json
+└── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Key Features
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+1. **Smart Contract Documentation**: Detailed information about LED-UP smart contracts, including Compensation, Data Registry, and LED-UP Token.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+2. **API Documentation**: Comprehensive guide for setting up the development environment and using the LED-UP Platform API.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+3. **Swagger UI Integration**: Interactive API documentation using Swagger UI.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+4. **Dark Mode Support**: The documentation supports both light and dark modes for better readability.
 
-## Learn More
+5. **FAQs Section**: Quick answers to common questions about the project setup and usage.
 
-To learn more about Next.js, take a look at the following resources:
+## Configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The project uses several configuration files:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. `next.config.mjs`: Next.js configuration with Nextra integration
+2. `theme.config.tsx`: Nextra theme configuration
+3. `tailwind.config.ts`: Tailwind CSS configuration
 
-## Deploy on Vercel
+## Dependencies
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Key dependencies include:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Next.js
+- Nextra
+- Swagger UI React
+- Tailwind CSS
+
+For a full list of dependencies, refer to the `package.json` file:
+
+## Contributing
+
+Contributions to improve the documentation are welcome. Please follow these steps:
+
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+[Add your license information here]
+
+## Contact
+
+[Add contact information or links to project resources]
