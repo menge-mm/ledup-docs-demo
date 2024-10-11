@@ -4,18 +4,18 @@ import Link from 'next/link';
 
 const Header = () => {
   return (
-    <header className="bg-white dark:bg-black shadow-sm dark:border-b dark:border-gray-800">
+    <header className="bg-gradient-to-r from-[#020024]  via-[#01688f] to-[#020024]  shadow-sm border-b border-b-ngi-pink/60">
       <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <div className="flex items-center space-x-2">
           <Image src="/logo.png" alt="LED-UP Logo" width={32} height={32} />
-          <span className="text-xl font-bold text-gray-800 dark:text-gray-100">LED-UP</span>
+          <span className="text-xl font-bold text-gray-100">LED-UP</span>
         </div>
         <nav>
           <ul className="flex space-x-4 items-center">
             <li>
               <a
                 href="https://github.com/NGI-TRUSTCHAIN/LED-UP"
-                className="text-gray-600 dark:text-gray-300 hover:text-ngi-pink dark:hover:text-gray-400"
+                className="text-gray-600  hover:text-ngi-pink"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LED-UP GitHub"

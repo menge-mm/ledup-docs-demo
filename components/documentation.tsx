@@ -42,13 +42,10 @@ const DocumentationGrid = () => {
     <div className="container mx-auto px-4 py-16">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {sections.map((section, index) => (
-          <div
-            key={index}
-            className="bg-white dark:bg-ngi-pink rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300"
-          >
-            <section.icon className="text-ngi-pink dark:text-gray-300 mb-4" size={32} />
-            <h2 className="text-xl font-semibold mb-2 text-ngi-pink dark:text-gray-100">{section.title}</h2>
-            <p className="text-gray-600 dark:text-gray-200">{section.description}</p>
+          <div key={index} className="bg-white  rounded-lg shadow-md p-6 hover:shadow-lg transition duration-300">
+            <section.icon className="text-ngi-pink  mb-4" size={32} />
+            <h2 className="text-xl font-semibold mb-2 text-ngi-pink ">{section.title}</h2>
+            <p className="text-gray-600 ">{section.description}</p>
           </div>
         ))}
       </div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const Hero = () => {
   return (
-    <div className="bg-gradient-to-r from-[#020024] dark:from-black via-[#01688f] dark:[#020024] to-ngi-[#020024] dark:to-black py-20">
+    <div className="bg-gradient-to-r from-[#020024]  via-[#01688f] to-[#020024]  py-20">
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-3xl lg:text-4xl font-bold text-white mb-4">LED-UP Healthcare Platform</h1>
         <p className="text-lg lg:text-xl text-white mb-8 ">

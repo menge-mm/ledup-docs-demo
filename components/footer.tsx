@@ -4,12 +4,12 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-100 dark:bg-black py-4 dark:border-t dark:border-gray-800">
+    <footer className="bg-gray-100 dark:border-t dark:border-gray-200 py-4">
       <div className="container flex flex-col items-center mx-auto px-4">
         <div className="flex w-full justify-between items-center">
-          <p className="text-gray-600 dark:text-gray-100">&copy; 2024 LED-UP.</p>
+          <p className="text-gray-600">&copy; 2024 LED-UP.</p>
           <div className="flex items-center space-x-2">
-            <span className="text-gray-600 dark:text-gray-100">Powered by</span>
+            <span className="text-gray-600">Powered by</span>
             <Image src={'/ngi-logo.png'} alt="NGI Logo" className="h-8" width={100} height={100} />
           </div>
         </div>
