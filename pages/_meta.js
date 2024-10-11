@@ -1,15 +1,13 @@
 export default {
-  index: 'Welcome',
   introduction: 'Introduction',
-  'getting-started': 'Getting Started',
-  contracts: 'Contracts',
-  data_types: 'Data Types',
-  interfaces: 'Interfaces',
+  // 'getting-started': 'Getting Started',
+  contracts: 'Smart Contracts',
+
   'api-docs': 'API Documentation',
-  encrypt: 'Encryption',
+
   github_link: {
     title: 'Source Code ↗',
-    href: 'https://github.com/LED-UP/LED-UP-SMART-CONTRACTS',
+    href: 'https://github.com/NGI-TRUSTCHAIN/LED-UP',
     newWindow: true,
   },
 };

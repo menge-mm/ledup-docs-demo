@@ -8,18 +8,22 @@ configuration, and basic usage.
 
 Before you begin, ensure you have the following:
 
-1. **Node.js**: Ensure you have [Node.js](https://nodejs.org/en/download/) (v14 or higher) installed on your machine.
-2. **Azure Account**: A valid Azure account to deploy and manage Azure Functions.
-3. **Azure Functions Core Tools**: Install [Azure Functions Core Tools](https://learn.microsoft.com/en-us/azure/azure-functions/functions-run-local) for local development and testing.
-4. **Git**: Make sure you have [Git](https://git-scm.com/) installed for version control.
+- **Node.js** 18.x or later installed on your machine
+- **TypeScript** 4.x or later
+- **A Deployed LED-UP Smart Contract** - see [LED-UP Smart Contract](https://github.com/NGI-TRUSTCHAIN/LED-UP/blob/master/LED-UP-SMART-CONTRACTS/README.md) for more information
+- **IPFS Node** - you can also use Pinata, Infura, or your own IPFS Node - see [IPFS](https://ipfs.io) for more information
+- Visual Studio Code
+- **Azure Functions Core Tools** - for local development
+- **Azure Functions Extension** - for Visual Studio Code
+- \*Git\*\*: Make sure you have [Git](https://git-scm.com/) installed for version control.
 
 ### Installation
 
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/your-username/producer-provider-api.git
-   cd producer-provider-api
+   git clone https://github.com/NGI-TRUSTCHAIN/LED-UP/tree/master/DATA_REGISTRY_SC_API
+   cd DATA_REGISTRY_SC_API
    ```
 
 2. **Install Dependencies**:
@@ -30,30 +34,53 @@ Before you begin, ensure you have the following:
 
 ### Configuration
 
-1. **Environment Variables**:
-   Create a `.env` file in the root directory of the project and add any necessary environment variables required by your Azure Functions. This may include database connection strings, API keys, etc.
+- **Environment Variables**:
+  The project requires several environment variables. They are stored in the local.settings.json for local development and in Azure Application Settings for production.
+  Create a `local.settings.json` file at the project root if it doesn't already exist. This file should not be committed to version control. Here’s an example setting that you can use:
 
-   Example `.env` file:
+  ```json
+  {
+    "IsEncrypted": false,
+    "Values": {
+      "ALCHEMY_API_KEY": "your-alchemy-api-key",
+      "AzureWebJobsStorage": "your-webjobsstorage-connection-string-here-or-use-azure-storage-emulator",
+      "COMPENSATION_CONTRACT_ADDRESS": "compensation-contract-address",
+      "DATA_REGISTRY_CONTRACT_ADDRESS": "data-registry-contract-address",
+      "DB_NAME": "azure-sql-db-name-for-data-sync-operations",
+      "DB_PORT": "azure-sql-db-port",
+      "DB_SERVER": "sql-server-url",
+      "ENCRYPTION_KEY": "encryption-key-for-data-encryption",
+      "FUNCTIONS_EXTENSION_VERSION": "~4",
+      "FUNCTIONS_WORKER_RUNTIME": "node",
+      "INFURA_API_KEY": "infura-api-key-optional",
+      "OWNER_ADDRESS": "owner-wallet-address",
+      "PATIENT_ADDRESS": "patient-wallet-address",
+      "PATIENT_PRIVATE_KEY": "patient-wallet-private-key",
+      "PRIVATE_KEY": "owner-wallet-private-key",
+      "RPC_URL": "local-rpc-url(localhost:8545)",
+      "SEPOLIA_RPC_URL": "sepolia-rpc-url",
+      "TABLE_ACCOUNT_ENDPOINT": "your-azure-table-account-endpoint",
+      "TABLE_ACCOUNT_KEY": "your-azure-table-account-key",
+      "TABLE_ACCOUNT_NAME": "your-azure-table-account-name",
+      "TABLE_CONNECTION_STRING": "your-azure-table-connection-string",
+      "TABLE_NAME": "your-azure-table-name",
+      "PARTITION_KEY": "your-azure-table-partition-key",
+      "ROW_KEY": "your-azure-table-row-key",
+      "TOKEN_ADDRESS": "your-token-address",
+      "SqlConnectionString": "azure-sql-connection-string",
+      "WEBSITE_CONTENTSHARE": "your-website-content-share",
 
-   ```plaintext
-   DATABASE_URL=<your_database_url>
-   API_KEY=<your_api_key>
-   ```
-
-2. **Local Settings** (optional):
-   For local development, you may want to create a `local.settings.json` file that mirrors the configuration of your Azure Functions.
-
-   Example `local.settings.json`:
-
-   ```json
-   {
-     "IsEncrypted": false,
-     "Values": {
-       "AzureWebJobsStorage": "<your_storage_connection_string>",
-       "FUNCTIONS_WORKER_RUNTIME": "node"
-     }
-   }
-   ```
+      "PINATA_JWT": "your-pinata-jwt",
+      "API_KEY": "your-pinata-api-key",
+      "API_SECRET": "your-pinata-api-secret",
+      "GATEWAY_URL": "your-ipfs-gateway-url"
+    },
+    "Host": {
+      "CORS": "*",
+      "CORSCredentials": false
+    }
+  }
+  ```
 
 ### Running the API Locally
 
@@ -61,7 +88,7 @@ Before you begin, ensure you have the following:
    To run the API locally, use the following command:
 
    ```bash
-   func start
+   npm start
    ```
 
 2. **Test the Endpoints**:
@@ -95,17 +122,9 @@ Before you begin, ensure you have the following:
   }
   ```
 
-#### Withdraw Service Fee
-
-- **Endpoint**: `POST /withdrawServiceFee`
-- **Request Body**:
-  ```json
-  {
-    "value": 50
-  }
-  ```
-
 ### Deployment to Azure
+
+To deploy the application to Azure:
 
 1. **Login to Azure**:
 
@@ -113,11 +132,25 @@ Before you begin, ensure you have the following:
    az login
    ```
 
-2. **Deploy the Function App**:
-   Run the following command to deploy your Azure Functions:
+2. **Create a resource group** (if not done already):
+
    ```bash
-   func azure functionapp publish <your_function_app_name>
+   az group create --name <resource-group-name> --location <location>
    ```
+
+3. **Create a new Azure Function App**:
+
+   ```bash
+   az functionapp create --resource-group <resource-group-name> --consumption-plan-location <location> --runtime node --functions-version 4 --name <function-app-name> --storage-account <storage-account-name>
+   ```
+
+4. **Deploy the application**:
+
+   ```bash
+   npm run deploy
+   ```
+
+   This script will automatically build and deploy the functions to Azure.
 
 ### Additional Resources
 

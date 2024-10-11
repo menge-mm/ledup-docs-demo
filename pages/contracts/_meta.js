@@ -1,8 +1,13 @@
 export default {
   'getting-started': 'Getting Started',
-  consent: 'Consent Management',
+  consent: {
+    display: 'hidden',
+  },
   data_registry: 'Data Registry',
   compensation: 'Compensation',
   'ledup-token': 'LED-UP Token',
-  zkp: 'ZKP',
+  zkp: {
+    display: 'hidden',
+  },
+  data_types: 'Data Types',
 };
