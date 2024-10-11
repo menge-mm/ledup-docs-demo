@@ -6,7 +6,7 @@ import Footer from './footer';
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col dark:bg-slate-800">
+    <div className="min-h-screen flex flex-col dark:bg-black">
       <Header />
       <Hero />
       <DocumentationGrid />
