@@ -1,25 +1,54 @@
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { Code } from 'nextra/components';
 import React, { useState } from 'react';
 const faqs = [
   {
     id: 1,
-    q: 'What is Web3?',
-    a: 'Web3 refers to the next generation of the internet, built on decentralized blockchain technology, enabling user ownership and control of data and digital assets.',
+    q: 'What are the prerequisites for setting up the LED-UP Platform API?',
+    a: 'The prerequisites include Node.js 18.x or later, TypeScript 4.x or later, a deployed LED-UP Smart Contract, IPFS Node (or Pinata, Infura), Visual Studio Code, Azure Functions Core Tools, Azure Functions Extension, and Git.',
   },
   {
     id: 2,
-    q: 'How do I start developing for Web3?',
-    a: 'Begin by learning blockchain basics, then choose a platform (like Ethereum) and start with simple smart contracts using languages like Solidity.',
+    q: 'How do I clone the LED-UP Platform API repository?',
+    a: (
+      <div>
+        <p></p> You can clone the repository using the following commands:
+        <Code className="flex flex-col p-4">
+          <span>git clone https://github.com/NGI-TRUSTCHAIN/LED-UP/tree/master/DATA_REGISTRY_SC_API</span>
+          <span>cd DATA_REGISTRY_SC_API</span>
+        </Code>
+      </div>
+    ),
   },
   {
     id: 3,
-    q: 'What are smart contracts?',
-    a: 'Smart contracts are self-executing contracts with the terms directly written into code, automatically enforcing agreements without intermediaries.',
+    q: 'How do I install the dependencies for the LED-UP Platform API?',
+    a: 'Navigate to the project directory and run the command:  npm install',
   },
   {
     id: 4,
-    q: 'How does blockchain differ from traditional databases?',
-    a: 'Blockchain is decentralized, immutable, and transparent, while traditional databases are typically centralized and controlled by a single entity.',
+    q: 'What environment variables are required for the LED-UP Platform API?',
+    a: 'The project requires environment variables like ALCHEMY_API_KEY, AzureWebJobsStorage, DB_SERVER, PRIVATE_KEY, and more. These should be added to the local.settings.json file.',
+  },
+  {
+    id: 5,
+    q: 'How do I run the LED-UP Platform API locally?',
+    a: 'You can run the API locally by using the command:  npm start',
+  },
+  {
+    id: 6,
+    q: 'How do I deploy the LED-UP Platform API to Azure?',
+    a: 'First, log in to Azure using `az login`, then create a resource group, a function app, and deploy the application using `npm run deploy`.',
+  },
+  {
+    id: 7,
+    q: 'How do I clone the LED-UP Smart Contracts repository?',
+    a: 'Run the following commands to clone the repository:  git clone https://github.com/NGI-TRUSTCHAIN/LED-UP/tree/master/LED-UP-SMART-CONTRACTS  cd LED-UP-SMART-CONTRACTS',
+  },
+  {
+    id: 8,
+    q: 'How do I install Foundry for working with smart contracts?',
+    a: 'To install Foundry, run the command:  curl -L https://foundry.paradigm.xyz | bash  followed by `foundryup` to keep it updated.',
   },
 ];
 
